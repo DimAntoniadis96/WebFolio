@@ -244,3 +244,28 @@ span{
   content: none !important;
   display: none !important;
 }
+
+.typed-text {
+  color: #42aaaa;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 5px;
+  width: 2px;
+  background-color: #1ecbe2;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Οριστική εξόντωση κάθε leftover ::before */
+.typed-text::before,
+.typed-text::after {
+  content: none !important;
+  display: none !important;
+}
