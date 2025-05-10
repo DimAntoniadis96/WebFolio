@@ -32,3 +32,23 @@ function erase() {
 document.addEventListener("DOMContentLoaded", () => {
   if (textArray.length) setTimeout(type, 1000);
 });
+
+
+
+//GIA LIGHT/DARK MODE~~~~~~~~~~~~~
+const themeToggle = document.querySelector(".theme-toggle");
+const themeIcon = themeToggle.querySelector("i");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  // Εναλλαγή εικονιδίου
+  if (document.body.classList.contains("light-mode")) {
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
+  } else {
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
+  }
+});
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
