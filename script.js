@@ -2,9 +2,7 @@ const typedTextSpan = document.querySelector(".typing-text span");
 const textArray = [
   " Web Developer",
   " Software Developer",
-  " Web Designer",
-  " Sound Engineer",
-  " Songwriter"
+  " Web Designer"
 ];
 let textArrayIndex = 0;
 let charIndex = 0;
