@@ -12,7 +12,9 @@
 
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
+
 
 body{               /*hi,it's kai LOREM*/
     width:100%;
@@ -24,12 +26,12 @@ body{               /*hi,it's kai LOREM*/
 
 header{
     position:fixed;
-    margin-top:20px;
+    margin-top:0px;
     top:0;
     left:0;
     width:100%;
     padding: 1rem 9%;
-    background-color: transparent black;
+    background-color: rgba(15, 11, 11, 0.8);
     filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.5));
     display: flex;
     justify-content: space-between;
@@ -65,6 +67,12 @@ nav a:hover,
 nav a.active{
     color: #dfdf7b;  /*HOME*/
     border-bottom:3px solid #bfcbcf; /*χρωμα κατω απο το home bar*/
+}
+
+body.light-mode nav a:hover,
+body.light-mode nav a.active {
+  color: #f9ffaa;
+  border-bottom: 3px solid #f5f5f5; /*χρωμα κατω απο το home bar για light mode*/
 }
 
 #menu-toggle{
@@ -114,12 +122,11 @@ section{
     padding: 5rem 9% 5rem;
 }
 
-.home{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8rem;
-    background-color: black; /*BACKGROUND COLOR*/
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
 }
 
 .home .home-content h1{
@@ -144,7 +151,8 @@ span{
 
 .home-img img{
     position:relative;
-    width:40vw;
+    width:25vw;
+    margin-top: 4rem;
     border-radius: 50%;
     box-shadow: 0 0 25px solid #afad1b;
     cursor:pointer;
@@ -214,47 +222,7 @@ span{
     position:relative;
 }
 
-.typing-text span::before{
-    content:"Front End Developer";
-    color:#497285;
-    animation: words 20 infinite;
-}
 
-.typing-text span::after{
-    content:"";
-    position: absolute;
-    width: calc(100% + 8px);
-    height: 40%;
-    border-left: 3px solid black;
-    right: -8;
-    animation: cursor 0.6s infinite;
-}
-
-@keyframes cursor {
-    0% { border-left-color: transparent; }
-    50% { border-left-color: #1ecbe2; }
-    100% { border-left-color: transparent; }
-    
-}
-
-
-@keyframes words{
-    0%, 20%{
-        content: "Web Developer";
-    }
-    21%,40%{
-        content:"Software Developer";
-    }
-    41%,60%{
-        content:"Web Designer";
-    }
-    61%,80%{
-        content:"Sound Engineerer";
-    }
-    81%,100%{
-        content:"Songwriter"
-    }
-}
 
 @media(max-width:1000px){
     .home{
@@ -275,7 +243,128 @@ span{
         font-size: 5rem;
     }
     .home-img img{
-        width: 70vh;
+        width: 50vw;
         margin-top: 4rem;
     }
 }
+
+.typing-text span::before {
+  content: none !important;
+  display: none !important;
+}
+
+.typed-text {
+  color: #42aaaa;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 5px;
+  width: 10px;
+  background-color: #5da7d8;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Οριστική εξόντωση κάθε leftover ::before */
+.typed-text::before,
+.typed-text::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+ /* GIA LIGHT/DARK MODE */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #afab93;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: 2rem;
+}
+
+.theme-toggle:hover {
+  color: #dfdf7b;
+}
+
+body.light-mode {
+  background-color: #f7f7f7;
+  color: #222;
+}
+
+body.light-mode header {
+  background-color: rgba(206, 234, 241, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode nav a {
+  color: #1e668f;
+}
+
+body.light-mode .logo {
+  color: #2d477e;
+}
+
+body.light-mode .typed-text {
+  color: #0e4494;
+}
+
+body.light-mode .cursor {
+  background-color: #42aaaa;
+}
+
+.home {
+  background-color: #000; /* default dark mode */
+}
+
+body.light-mode .home {
+  background-color: #f7f7f7; /* light mode */
+}
+
+body.light-mode .home-content p {
+  color: #0a0606;
+} 
+ /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+ section {
+  padding: 10rem 9%;
+  min-height: 100vh;
+  color: inherit;
+  background-color: inherit;
+}
+
+section h2 {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+  color: #42aaaa;
+}
+
+section p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+}
+
+
+
+.img-light {
+  display: none;
+}
+
+body.light-mode .img-dark {
+  display: none;
+}
+
+body.light-mode .img-light {
+  display: block;
+}
+
+
+
